@@ -65,11 +65,11 @@ export default function Home() {
     {
       title: "Portfolio",
       description:
-        "",
+        "Mon-Portfolio est un site portfolio développé avec Next.js, TypeScript et Tailwind CSS, présentant mes compétences, projets et contact.",
       tech: ["TypeScript", "Next.js", "Tailwind CSS"],
       github: "https://github.com/stouf06/Mon-Portfolio",
-      demo: "",
-      gamma: "",
+      demo: "https://github.com/stouf06/Mon-Portfolio/blob/main/README.md",
+      gamma: "https://gamma.app/docs/Mon-Portfolio-Presentation-du-Projet-687qi1ck2tssc72",
     },
     {
       title: "Laravel + React SPA",

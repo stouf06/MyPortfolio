@@ -1,6 +1,6 @@
 # Mon-Portfolio
 
-Bienvenue dans **Mon-Portfolio**, un site portfolio développé avec Next.js, TypeScript et Tailwind CSS, présentant vos compétences, projets et contact.
+Bienvenue dans **Mon-Portfolio**, un site portfolio développé avec Next.js, TypeScript et Tailwind CSS, présentant mes compétences, projets et contact.
 
 ## 🚀 Prérequis
 
