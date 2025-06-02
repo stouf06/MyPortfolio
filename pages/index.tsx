@@ -29,56 +29,29 @@ export default function Home() {
     {
       title: "Le Blog de Sophie",
       description:
-        "Le Blog de Sophie est une plateforme développée avec Laravel, utilisant Breeze pour l’authentification, Blade pour le templating et Tailwind CSS pour le style. La base de données embarquée est SQLite, ce qui simplifie le démarrage et le déploiement.",
+        ["C'est une plateforme d'échange et d'information développée avec Laravel, utilisant Breeze pour l’authentification, Blade pour le templating et Tailwind CSS pour le style. La base de données embarquée est SQLite, ce qui simplifie le démarrage et le déploiement.", <br/>, <br/>],
       tech: ["Laravel", "Breeze", "SQLite", "Blade", "Tailwind CSS"],
       github: "https://github.com/LaplateformeProjects/BlogLaravel",
       demo: "https://github.com/LaplateformeProjects/BlogLaravel/blob/main/laravel-blog/docs/demo.gif",
+      figma: "https://www.figma.com/design/n4FAJF2M1svc4tNJAxZquO/Le-Blog-de-Sophie?node-id=0-1&p=f&t=Tj0EyM354R2cZ5bO-0",
       gamma: "https://gamma.app/docs/Le-Blog-de-Sophie-1r25pbxo8xnva5i",
-    },
-    {
-      title: "Les Tables Cannoises (Backend)",
-      description:
-        "Le backend sera développé en PHP, fournissant une API REST pour interagir avec le frontend. Les tables de la base de données seront structurées pour répondre aux besoins fonctionnels du projet. Des requêtes optimisées seront implémentées pour le filtrage et la recherche, garantissant des performances optimales.",
-      tech: ["PHP", "MySQL"],
-      github: "https://github.com/LaplateformeProjects/Les_Tables_Cannoises_Backend",
-      demo: "",
-      gamma: "https://gamma.app/docs/Les-Tables-Cannoises-k7jahgd3rz6zt3o",
-    },
-    {
-      title: "Les Tables Cannoises (Frontend)",
-      description:
-        "Le frontend sera développé en utilisant React pour la gestion de l'interface utilisateur et Tailwind CSS pour le style.",
-      tech: ["React.js", "Tailwind CSS"],
-      github: "https://github.com/LaplateformeProjects/Les_Tables_Cannoises_Frontend",
-      demo: "",
-      gamma: "https://gamma.app/docs/Les-Tables-Cannoises-k7jahgd3rz6zt3o",
     },
     {
       title: "Les Repas de Lili",
       description:
-        "",
+        "C'est une plateforme de réservation développée en Node.js, fournissant une API REST pour interagir avec le frontend. Celui-ci est développé en React pour la gestion de l'interface utilisateur et Tailwindcss pour le style. Authentification JWT (Jason Web Token) pour sécuriser les interactions entre le client et l'API.",
       tech: ["Node.js", "Hono.js", "SQLite", "React.js", "Tailwind CSS"],
       github: "https://github.com/laplateformeio/lili-cdpi-cannes-grp1",
-      demo: "",
+      figma: "https://www.figma.com/design/SyTD4u1bcAsAyo82pJBpWi/Les-repas-de-Lili?node-id=0-1&p=f&t=60qA77LbOQ8JI4kj-0",
       gamma: "https://gamma.app/docs/Les-Repas-de-Lili-gg7ojk69oznxdni",
     },
     {
       title: "Portfolio",
       description:
-        "Mon-Portfolio est un site portfolio développé avec Next.js, TypeScript et Tailwind CSS, présentant mes compétences, projets et contact.",
+        ["C'est un site Carte de visite développé avec Next.js, TypeScript et Tailwind CSS, présentant mes compétences (Soft Skills et Technical Skills), mes projets et une fiche de contact.", <br/>, <br/>, <br/>, <br/>],
       tech: ["TypeScript", "Next.js", "Tailwind CSS"],
       github: "https://github.com/stouf06/Mon-Portfolio",
-      demo: "https://github.com/stouf06/Mon-Portfolio/blob/main/README.md",
       gamma: "https://gamma.app/docs/Mon-Portfolio-Presentation-du-Projet-687qi1ck2tssc72",
-    },
-    {
-      title: "Laravel + React SPA",
-      description:
-        "Single Page Application combining Laravel API backend with React frontend for seamless user experience",
-      tech: ["Laravel", "React.js", "Sanctum", "Inertia.js", "Tailwind CSS"],
-      github: "",
-      demo: "",
-      gamma: "",
     },
   ];
 
@@ -90,16 +63,36 @@ export default function Home() {
           <nav className="flex items-center justify-between">
             <h1 className="text-2xl font-bold text-gray-900">Portfolio</h1>
             <div className="flex gap-6">
-              <Link href="#about" className="text-gray-600 transition-colors hover:text-gray-900">
-                About
+              <Link
+                href="#about"
+                className="relative text-gray-600 transition-colors hover:text-gray-900
+                          after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0
+                        after:bg-gray-900 after:transition-all after:duration-300 hover:after:w-full"
+              >
+                A propos
               </Link>
-              <Link href="#skills" className="text-gray-600 transition-colors hover:text-gray-900">
-                Skills
+              <Link 
+                href="#skills" 
+                className="relative text-gray-600 transition-colors hover:text-gray-900
+                          after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0
+                        after:bg-gray-900 after:transition-all after:duration-300 hover:after:w-full"
+              >
+                Compétences
               </Link>
-              <Link href="#projects" className="text-gray-600 transition-colors hover:text-gray-900">
-                Projects
+              <Link 
+                href="#projects" 
+                className="relative text-gray-600 transition-colors hover:text-gray-900
+                          after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0
+                        after:bg-gray-900 after:transition-all after:duration-300 hover:after:w-full"
+              >
+                Projets
               </Link>
-              <Link href="#contact" className="text-gray-600 transition-colors hover:text-gray-900">
+              <Link 
+                href="#contact" 
+                className="relative text-gray-600 transition-colors hover:text-gray-900
+                          after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0
+                        after:bg-gray-900 after:transition-all after:duration-300 hover:after:w-full"
+              >
                 Contact
               </Link>
             </div>
@@ -111,21 +104,20 @@ export default function Home() {
       <section className="px-4 py-20">
         <div className="container mx-auto text-center">
           <h1 className="mb-6 text-5xl font-bold text-gray-900 md:text-7xl">
-            Studient
-            <span className="block text-emerald-600">Web Developer</span>
+            Etudiant
+            <span className="block text-emerald-600">Développeur Web</span>
           </h1>
           <p className="max-w-2xl mx-auto mb-8 text-xl text-gray-600">
-            Passionate about creating modern web applications with clean code and user-friendly interfaces.
-            I studied in both frontend and backend technologies.
+            Passionné par la création d'applications web modernes avec un code clair et des interfaces conviviales, j'ai étudié plusieurs technologies front-end et back-end.
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
               <Mail className="w-4 h-4 mr-2" />
-              Get In Touch
+              Entrer en contact
             </Button>
             <Button variant="outline" size="lg">
               <Github className="w-4 h-4 mr-2" />
-              View GitHub
+              Voir GitHub
             </Button>
           </div>
         </div>
@@ -135,33 +127,32 @@ export default function Home() {
       <section id="about" className="px-4 py-20 bg-white">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
-            <h2 className="mb-12 text-3xl font-bold text-center text-gray-900">About Me</h2>
+            <h2 className="mb-12 text-3xl font-bold text-center text-gray-900">A propos de moi</h2>
             <div className="grid items-center gap-12 md:grid-cols-2">
               <div>
                 <p className="mb-6 text-lg text-gray-600">
-                  I'm a junior full-stack web developer with a passion for creating efficient, scalable web
-                  applications...
+                  Je suis un développeur web full-stack junior passionné par la création d'applications web efficaces et évolutives...
                 </p>
                 <p className="mb-6 text-lg text-gray-600">
-                  I enjoy working with modern frameworks and tools...
+                  J'aime travailler avec des frameworks et des outils modernes...
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary">Problem Solver</Badge>
-                  <Badge variant="secondary">Team Player</Badge>
-                  <Badge variant="secondary">Quick Learner</Badge>
-                  <Badge variant="secondary">Detail Oriented</Badge>
+                  <Badge variant="secondary">Pugnace dans la résolution de problèmes</Badge>
+                  <Badge variant="secondary">Intégration facile et orienté travail en équipe</Badge>
+                  <Badge variant="secondary">Apprentissage rapide et forte adaptablilité</Badge>
+                  <Badge variant="secondary">Autonome et soucieux du détail</Badge>
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <Card className="p-6 text-center">
                   <Code className="w-8 h-8 mx-auto mb-2 text-emerald-600" />
                   <h3 className="font-semibold">Frontend</h3>
-                  <p className="text-sm text-gray-600">React, CSS, Tailwind</p>
+                  <p className="text-sm text-gray-600">React, Bootstrap, Tailwind</p>
                 </Card>
                 <Card className="p-6 text-center">
                   <Database className="w-8 h-8 mx-auto mb-2 text-emerald-600" />
                   <h3 className="font-semibold">Backend</h3>
-                  <p className="text-sm text-gray-600">PHP, Laravel, Node.js</p>
+                  <p className="text-sm text-gray-600">Laravel, Node.js, Hono.js</p>
                 </Card>
                 <Card className="p-6 text-center">
                   <Globe className="w-8 h-8 mx-auto mb-2 text-emerald-600" />
@@ -171,7 +162,7 @@ export default function Home() {
                 <Card className="p-6 text-center">
                   <Terminal className="w-8 h-8 mx-auto mb-2 text-emerald-600" />
                   <h3 className="font-semibold">Tools</h3>
-                  <p className="text-sm text-gray-600">Git, GitHub, CLI</p>
+                  <p className="text-sm text-gray-600">Git, GitHub, interface de ligne de commande (CLI)</p>
                 </Card>
               </div>
             </div>
@@ -183,27 +174,27 @@ export default function Home() {
       <section id="skills" className="px-4 py-20">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
-            <h2 className="mb-12 text-3xl font-bold text-center text-gray-900">Technical Skills</h2>
+            <h2 className="mb-12 text-3xl font-bold text-center text-gray-900">Compétences Techniques</h2>
             <div className="grid gap-8 md:grid-cols-3">
               {Object.entries(skills).map(([category, items]) => (
                 <Card key={category}>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2 capitalize">
                       {category === "backend" ? (
-                        <Database className="w-5 h-5 text-emerald-600" />
+                        <Database className="w-6 h-6 text-emerald-600" />
                       ) : category === "frontend" ? (
-                        <Code className="w-5 h-5 text-emerald-600" />
+                        <Code className="w-6 h-6 text-emerald-600" />
                       ) : (
-                        <Terminal className="w-5 h-5 text-emerald-600" />
+                        <Terminal className="w-6 h-6 text-emerald-600" />
                       )}
                       {category}
                     </CardTitle>
                     <CardDescription>
                       {category === "backend"
-                        ? "Server-side technologies and frameworks"
+                        ? "Technologies et frameworks côté serveur"
                         : category === "frontend"
-                        ? "User interface and styling technologies"
-                        : "Development tools and version control"}
+                        ? "Interface utilisateur (UI) et technologies orientées Style"
+                        : "Outils de développement et contrôle des fonctions de débogage"}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -226,7 +217,7 @@ export default function Home() {
       <section id="projects" className="px-4 py-20 bg-white">
         <div className="container mx-auto">
           <div className="max-w-6xl mx-auto">
-            <h2 className="mb-12 text-3xl font-bold text-center text-gray-900">Featured Projects</h2>
+            <h2 className="mb-12 text-3xl font-bold text-center text-gray-900">Présentation des Projets</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {projects.map((project, index) => (
                 <Card key={index} className="transition-shadow hover:shadow-lg">
@@ -259,6 +250,14 @@ export default function Home() {
                         </Link>
                       </Button>
                     )}
+                    {project.figma && (
+                      <Button variant="outline" size="sm" asChild>
+                        <Link href={project.figma}>
+                          <ExternalLink className="w-4 h-4 mr-1" />
+                          Figma
+                        </Link>
+                      </Button>
+                    )}
                     {project.gamma && (
                       <Button variant="outline" size="sm" asChild>
                         <Link href={project.gamma}>
@@ -279,19 +278,18 @@ export default function Home() {
       {/* Contact */}
       <section id="contact" className="px-4 py-20">
         <div className="container mx-auto text-center">
-          <h2 className="mb-8 text-3xl font-bold text-gray-900">Let's Work Together</h2>
+          <h2 className="mb-8 text-3xl font-bold text-gray-900">Travaillons ensemble</h2>
           <p className="mb-8 text-lg text-gray-600">
-            I'm always interested in new opportunities and exciting projects. Let's connect and discuss how we can work
-            together!
+           Je suis toujours intéressé par de nouvelles opportunités et des projets passionnants. Échangeons et discutons de la façon dont nous pouvons travailler ensemble !
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
               <Mail className="w-4 h-4 mr-2" />
-              Contact Me
+              Contactez-moi
             </Button>
             <Button variant="outline" size="lg">
               <Github className="w-4 h-4 mr-2" />
-              View GitHub
+              Voir GitHub
             </Button>
           </div>
         </div>
