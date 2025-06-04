@@ -17,6 +17,7 @@ import {
   Terminal,
 } from "lucide-react";
 import Link from "next/link";
+import ContactSection from '../components/ContactSection';
 
 export default function Home() {
   const skills = {
@@ -111,10 +112,12 @@ export default function Home() {
             Passionné par la création d'applications web modernes avec un code clair et des interfaces conviviales, j'ai étudié plusieurs technologies front-end et back-end.
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
-              <Mail className="w-4 h-4 mr-2" />
-              Entrer en contact
-            </Button>
+            <Link href="#contact">
+              <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
+                <Mail className="w-4 h-4 mr-2" />
+                Entrer en contact
+              </Button>
+            </Link>
             <Button variant="outline" size="lg">
               <Github className="w-4 h-4 mr-2" />
               Voir GitHub
@@ -275,24 +278,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact */}
+      {/* Footer */}
       <section id="contact" className="px-4 py-20">
         <div className="container mx-auto text-center">
           <h2 className="mb-8 text-3xl font-bold text-gray-900">Travaillons ensemble</h2>
-          <p className="mb-8 text-lg text-gray-600">
+          <p className="mb-0 text-lg text-gray-600">
            Je suis toujours intéressé par de nouvelles opportunités et des projets passionnants. Échangeons et discutons de la façon dont nous pouvons travailler ensemble !
           </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
-              <Mail className="w-4 h-4 mr-2" />
-              Contactez-moi
-            </Button>
-            <Button variant="outline" size="lg">
-              <Github className="w-4 h-4 mr-2" />
-              Voir GitHub
-            </Button>
-          </div>
         </div>
+      </section>
+
+      {/* Fiche de contact */}
+      <section id="contact">
+        <ContactSection />
       </section>
     </div>
   );
