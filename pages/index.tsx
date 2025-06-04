@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import ContactSection from '../components/ContactSection';
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const skills = {
@@ -28,9 +29,12 @@ export default function Home() {
 
   const projects = [
     {
-      title: "Le Blog de Sophie",
-      description:
-        ["C'est une plateforme d'échange et d'information développée avec Laravel, utilisant Breeze pour l’authentification, Blade pour le templating et Tailwind CSS pour le style. La base de données embarquée est SQLite, ce qui simplifie le démarrage et le déploiement.", <br/>, <br/>],
+      title: ( <> Le Blog de Sophie <br/><br/> </> ),
+      description: (
+      <>
+        C'est une plateforme d'échange et d'information développée avec Laravel, utilisant Breeze pour l’authentification, Blade pour le templating et Tailwind CSS pour le style. La base de données embarquée est SQLite, ce qui simplifie le démarrage et le déploiement.
+      <br/><br/>
+      </> ),
       tech: ["Laravel", "Breeze", "SQLite", "Blade", "Tailwind CSS"],
       github: "https://github.com/LaplateformeProjects/BlogLaravel",
       demo: "https://github.com/LaplateformeProjects/BlogLaravel/blob/main/laravel-blog/docs/demo.gif",
@@ -38,7 +42,7 @@ export default function Home() {
       gamma: "https://gamma.app/docs/Le-Blog-de-Sophie-1r25pbxo8xnva5i",
     },
     {
-      title: "Les Repas de Lili",
+      title: ( <> Les Repas de Lili <br/><br/> </> ),
       description:
         "C'est une plateforme de réservation développée en Node.js, fournissant une API REST pour interagir avec le frontend. Celui-ci est développé en React pour la gestion de l'interface utilisateur et Tailwindcss pour le style. Authentification JWT (Jason Web Token) pour sécuriser les interactions entre le client et l'API.",
       tech: ["Node.js", "Hono.js", "SQLite", "React.js", "Tailwind CSS"],
@@ -47,14 +51,32 @@ export default function Home() {
       gamma: "https://gamma.app/docs/Les-Repas-de-Lili-gg7ojk69oznxdni",
     },
     {
-      title: "Portfolio",
-      description:
-        ["C'est un site Carte de visite développé avec Next.js, TypeScript et Tailwind CSS, présentant mes compétences (Soft Skills et Technical Skills), mes projets et une fiche de contact.", <br/>, <br/>, <br/>, <br/>],
+      title: ( <> Portfolio <br/><br/> </> ),
+      description: (
+      <>
+        C'est un site Carte de visite développé avec Next.js, TypeScript et Tailwind CSS, présentant mes compétences (Soft Skills et Technical Skills), mes projets et une fiche de contact.
+        <br/><br/><br/><br/> 
+      </> ),
       tech: ["TypeScript", "Next.js", "Tailwind CSS"],
       github: "https://github.com/stouf06/Mon-Portfolio",
       gamma: "https://gamma.app/docs/Mon-Portfolio-Presentation-du-Projet-687qi1ck2tssc72",
     },
   ];
+
+  const [showScrollBtn, setShowScrollBtn] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollBtn(window.scrollY > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
@@ -62,7 +84,10 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur-md">
         <div className="container px-4 py-4 mx-auto">
           <nav className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-gray-900">Portfolio</h1>
+            <div className="flex gap-2">
+              <Globe className="text-xl font-bold text-emerald-600"/>
+              <h1 className="text-2xl font-bold text-gray-900">Portfolio</h1>
+            </div>
             <div className="flex gap-6">
               <Link
                 href="#about"
@@ -104,7 +129,7 @@ export default function Home() {
       {/* Hero */}
       <section className="px-4 py-20">
         <div className="container mx-auto text-center">
-          <h1 className="mb-6 text-5xl font-bold text-gray-900 md:text-7xl">
+          <h1 className="mb-8 text-4xl font-bold text-gray-900 md:text-7xl">
             Etudiant
             <span className="block text-emerald-600">Développeur Web</span>
           </h1>
@@ -113,15 +138,21 @@ export default function Home() {
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Link href="#contact">
-              <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
+              <Button variant="default" size="lg">
                 <Mail className="w-4 h-4 mr-2" />
                 Entrer en contact
               </Button>
             </Link>
-            <Button variant="outline" size="lg">
-              <Github className="w-4 h-4 mr-2" />
-              Voir GitHub
-            </Button>
+            <Link 
+              href="https://github.com/stouf06"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="outline" size="lg">
+                <Github className="w-4 h-4 mr-2" />
+                Profil GitHub
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -292,6 +323,25 @@ export default function Home() {
       <section id="contact">
         <ContactSection />
       </section>
+
+      {/* Bouton de retour en haut */}
+      <div className="fixed z-50 group bottom-6 right-6">
+        <button
+          onClick={scrollToTop}
+          className={`${
+            showScrollBtn ? "block" : "hidden"
+          } p-3 transition-all duration-300 transform bg-white rounded-full shadow-lg text-gray-800 hover:scale-110 hover:shadow-[0_0_15px_4px_rgba(99,102,241,0.4)] animate-pulse`}
+          aria-label="Retour en haut"
+        >
+          ⬆️
+        </button>
+
+        {/* Tooltip à gauche avec animation */}
+        <div className="absolute items-center hidden px-3 py-1 mr-3 text-xs font-medium text-white transition-all duration-300 ease-out transform scale-95 -translate-y-1/2 bg-black rounded shadow-md opacity-0 right-full top-1/2 group-hover:flex bg-opacity-80 group-hover:opacity-100 group-hover:scale-100">
+          Retour en haut
+          <div className="absolute w-2 h-2 rotate-45 -translate-y-1/2 bg-black bg-opacity-80 top-1/2 -right-1"></div>
+        </div>
+      </div>
     </div>
   );
 }
