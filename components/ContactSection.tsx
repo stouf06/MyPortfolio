@@ -55,7 +55,7 @@ export default function ContactSection() {
               type="email"
               id="email"
               name="email"
-              placeholder="vous@example.com"
+              placeholder="vous@exemple.com"
               value={formData.email}
               onChange={handleChange}
               required

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Badge } from "../components/ui/badge";
 import { Button } from "../components/ui/button";
 import {
@@ -17,14 +18,15 @@ import {
   Terminal,
 } from "lucide-react";
 import Link from "next/link";
-import ContactSection from '../components/ContactSection';
-import { useEffect, useState } from "react";
+import ContactSection from "../components/ContactSection";
 
 export default function Home() {
+  
   const skills = {
     backend: ["PHP", "Laravel", "JavaScript", "Node.js", "Hono.js"],
+    database: ["MySQL", "SQLite"],
     frontend: ["React.js", "CSS", "Bootstrap", "Tailwind CSS"],
-    tools: ["Git", "GitHub", "Terminal"],
+    tools: ["Git", "GitHub", "Terminal", "Docker"],
   };
 
   const projects = [
@@ -80,6 +82,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
+      
       {/* Header */}
       <header className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur-md">
         <div className="container px-4 py-4 mx-auto">
@@ -128,7 +131,7 @@ export default function Home() {
 
       {/* Hero */}
       <section className="px-4 py-20">
-        <div className="container mx-auto text-center">
+        <div className="container mx-auto mb-24 text-center">
           <h1 className="mb-8 text-4xl font-bold text-gray-900 md:text-7xl">
             Etudiant
             <span className="block text-emerald-600">Développeur Web</span>
@@ -157,91 +160,142 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About */}
+      {/* A propos (Soft skills) */}
       <section id="about" className="px-4 py-20 bg-white">
-        <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="mb-12 text-3xl font-bold text-center text-gray-900">A propos de moi</h2>
-            <div className="grid items-center gap-12 md:grid-cols-2">
-              <div>
-                <p className="mb-6 text-lg text-gray-600">
-                  Je suis un développeur web full-stack junior passionné par la création d'applications web efficaces et évolutives...
-                </p>
-                <p className="mb-6 text-lg text-gray-600">
-                  J'aime travailler avec des frameworks et des outils modernes...
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary">Pugnace dans la résolution de problèmes</Badge>
-                  <Badge variant="secondary">Intégration facile et orienté travail en équipe</Badge>
-                  <Badge variant="secondary">Apprentissage rapide et forte adaptablilité</Badge>
-                  <Badge variant="secondary">Autonome et soucieux du détail</Badge>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <Card className="p-6 text-center">
-                  <Code className="w-8 h-8 mx-auto mb-2 text-emerald-600" />
-                  <h3 className="font-semibold">Frontend</h3>
-                  <p className="text-sm text-gray-600">React, Bootstrap, Tailwind</p>
-                </Card>
-                <Card className="p-6 text-center">
-                  <Database className="w-8 h-8 mx-auto mb-2 text-emerald-600" />
-                  <h3 className="font-semibold">Backend</h3>
-                  <p className="text-sm text-gray-600">Laravel, Node.js, Hono.js</p>
-                </Card>
-                <Card className="p-6 text-center">
-                  <Globe className="w-8 h-8 mx-auto mb-2 text-emerald-600" />
-                  <h3 className="font-semibold">Full-Stack</h3>
-                  <p className="text-sm text-gray-600">End-to-end development</p>
-                </Card>
-                <Card className="p-6 text-center">
-                  <Terminal className="w-8 h-8 mx-auto mb-2 text-emerald-600" />
-                  <h3 className="font-semibold">Tools</h3>
-                  <p className="text-sm text-gray-600">Git, GitHub, interface de ligne de commande (CLI)</p>
-                </Card>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+  <div className="container mx-auto">
+    <div className="max-w-5xl mx-auto">
+      <h2 className="mb-12 text-3xl italic font-bold text-center text-gray-900">- Soft Skills -</h2>
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <Card className="p-6">
+          <h3 className="mb-2 text-xl font-semibold text-emerald-600">Personnel</h3>
+          <ul className="space-y-1 text-sm text-gray-700 list-disc list-inside">
+            <li>Adopter une attitude optimiste</li>
+            <li>Rester courtois</li>
+            <li>Faire preuve de confiance en soi</li>
+            <li>Être patient</li>
+            <li>Savoir gérer son stress</li>
+          </ul>
+        </Card>
 
-      {/* Skills */}
+        <Card className="p-6">
+          <h3 className="mb-2 text-xl font-semibold text-emerald-600">Communication</h3>
+          <ul className="space-y-1 text-sm text-gray-700 list-disc list-inside">
+            <li>Savoir écouter</li>
+            <li>Se faire comprendre à l’oral et à l’écrit</li>
+            <li>Être capable de négocier</li>
+            <li>Prendre la parole en public</li>
+            <li>Faire preuve d'assertivité</li>
+          </ul>
+        </Card>
+
+        <Card className="p-6">
+          <h3 className="mb-2 text-xl font-semibold text-emerald-600">Réflexion</h3>
+          <ul className="space-y-1 text-sm text-gray-700 list-disc list-inside">
+            <li>Savoir se remettre en question</li>
+            <li>Être créatif et innovant</li>
+            <li>Savoir s'adapter</li>
+            <li>Résoudre des problèmes complexes</li>
+            <li>Mener une réflexion logique</li>
+          </ul>
+        </Card>
+
+        <Card className="p-6">
+          <h3 className="mb-2 text-xl font-semibold text-emerald-600">Éthique professionnelle</h3>
+          <ul className="space-y-1 text-sm text-gray-700 list-disc list-inside">
+            <li>Être organisé</li>
+            <li>Orienté résultat</li>
+            <li>Faire preuve de ponctualité</li>
+            <li>Avoir le sens du devoir</li>
+            <li>Gérer la confidentialité des informations</li>
+          </ul>
+        </Card>
+
+        <Card className="p-6">
+          <h3 className="mb-2 text-xl font-semibold text-emerald-600">Relationnel</h3>
+          <ul className="space-y-1 text-sm text-gray-700 list-disc list-inside">
+            <li>Développer l’intelligence émotionnelle</li>
+            <li>Donner un feedback constructif</li>
+            <li>Savoir collaborer</li>
+            <li>Faire preuve d’empathie</li>
+            <li>Respecter les différences</li>
+          </ul>
+        </Card>
+
+        <Card className="p-6">
+          <h3 className="mb-2 text-xl font-semibold text-emerald-600">Leadership</h3>
+          <ul className="space-y-1 text-sm text-gray-700 list-disc list-inside">
+            <li>Résoudre des conflits</li>
+            <li>Prendre des décisions</li>
+            <li>Inspirer et définir une vision commune</li>
+            <li>Motiver les autres</li>
+            <li>Savoir fédérer autour de soi</li>
+          </ul>
+        </Card>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      {/* Compétences Techniques (Hard skills) */}
       <section id="skills" className="px-4 py-20">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
-            <h2 className="mb-12 text-3xl font-bold text-center text-gray-900">Compétences Techniques</h2>
-            <div className="grid gap-8 md:grid-cols-3">
-              {Object.entries(skills).map(([category, items]) => (
-                <Card key={category}>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2 capitalize">
-                      {category === "backend" ? (
-                        <Database className="w-6 h-6 text-emerald-600" />
-                      ) : category === "frontend" ? (
-                        <Code className="w-6 h-6 text-emerald-600" />
-                      ) : (
-                        <Terminal className="w-6 h-6 text-emerald-600" />
-                      )}
-                      {category}
-                    </CardTitle>
-                    <CardDescription>
-                      {category === "backend"
-                        ? "Technologies et frameworks côté serveur"
-                        : category === "frontend"
-                        ? "Interface utilisateur (UI) et technologies orientées Style"
-                        : "Outils de développement et contrôle des fonctions de débogage"}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2">
-                      {items.map((skill) => (
-                        <Badge key={skill} variant="outline">
-                          {skill}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+            <h2 className="mb-12 text-3xl italic font-bold text-center text-gray-900">
+            - Hard Skills -
+            </h2>
+            <div className="grid gap-8 md:grid-cols-2">
+              {Object.entries(skills).map(([category, items]) => {
+                const icon =
+                  category === "backend" ? (
+                  <Database className="w-6 h-6 text-emerald-600" />
+                  ) : category === "database" ? (
+                  <Database className="w-6 h-6 text-emerald-600" />
+                  ) : category === "frontend" ? (
+                  <Code className="w-6 h-6 text-emerald-600" />
+                  ) : category === "tools" ? (
+                  <Terminal className="w-6 h-6 text-emerald-600" />
+                  ) : null;
+
+                const description =
+                  category === "backend"
+                  ? "Technologies et frameworks côté serveur"
+                  : category === "database"
+                  ? "Gestion de bases de données et requêtes de données"
+                  : category === "frontend"
+                  ? "Développement de l’UI et intégration"
+                  : category === "tools"
+                  ? "Outils de développement et environnements de travail"
+                  : "";
+
+                return (
+                  <Card
+                    key={category}
+                    className="flex flex-col items-center p-4 text-center"
+                  >
+                    <CardHeader className="flex flex-col items-center">
+                      <div className="flex items-center justify-center gap-2 mb-2">
+                        {icon}
+                        <CardTitle className="text-lg capitalize text-emerald-700">
+                          {category}
+                        </CardTitle>
+                      </div>
+                      <CardDescription className="text-sm text-gray-500">
+                        {description}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="flex flex-wrap justify-center gap-2">
+                        {items.map((skill) => (
+                          <Badge key={skill} variant="outline">
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -251,7 +305,7 @@ export default function Home() {
       <section id="projects" className="px-4 py-20 bg-white">
         <div className="container mx-auto">
           <div className="max-w-6xl mx-auto">
-            <h2 className="mb-12 text-3xl font-bold text-center text-gray-900">Présentation des Projets</h2>
+            <h2 className="mb-12 text-3xl italic font-bold text-center text-gray-900">- Présentation des Projets -</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {projects.map((project, index) => (
                 <Card key={index} className="transition-shadow hover:shadow-lg">
@@ -311,12 +365,12 @@ export default function Home() {
 
       {/* Footer */}
       <section id="contact" className="px-4 py-20">
-        <div className="container mx-auto text-center">
-          <h2 className="mb-8 text-3xl font-bold text-gray-900">Travaillons ensemble</h2>
-          <p className="mb-0 text-lg text-gray-600">
+        <Card className="container mx-auto text-center">
+          <h2 className="mt-4 mb-8 text-3xl italic font-bold text-gray-900">- Travaillons ensemble -</h2>
+          <p className="mb-4 text-lg text-gray-600">
            Je suis toujours intéressé par de nouvelles opportunités et des projets passionnants. Échangeons et discutons de la façon dont nous pouvons travailler ensemble !
           </p>
-        </div>
+        </Card>
       </section>
 
       {/* Fiche de contact */}
